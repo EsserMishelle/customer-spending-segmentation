@@ -37,13 +37,13 @@ Accordingly, outliers are retained in the dataset to allow the clustering proces
 
 ![Boxplots of Spending Features](assets/boxplot_spending_features.jpg)
 
+## Correlation Structure
 
+Correlation analysis of the numeric spending features reveals strong positive relationships between certain product categories. Grocery and Detergents_Paper spending show a very strong positive correlation, implying similar purchasing behavior.
+Milk spending is also strongly correlated with Grocery, indicating related buying patterns.
+Grocery shows weak correlation with Fresh and Frozen, suggesting more independent purchasing behavior across these categories.
 
-
-
-A strong positive relationship is observed between Grocery and Detergents_Paper spending, indicating overlapping purchasing behavior among certain customer segments.
-
-![Grocery vs Detergents](assets/eda_grocery_vs_detergents.png)
+![Grocery vs Detergents](assets/corr_heatmap.jpg)
 
 ➡️ Full analysis: [`1_EDA.ipynb`](1_EDA.ipynb)
 ## Preprocessing
