@@ -22,17 +22,24 @@ assessing feature suitability for clustering.
 
 ### Spending Distributions
 Initial histograms of the raw spending variables reveal highly right-skewed distributions, with a small subset of customers accounting for disproportionately large expenditures. These heavy-tailed patterns indicate substantial diversity in purchasing behavior and suggest that distance-based methods may be dominated by extreme values if left unaddressed.
-![Raw_Spending_Distributions](assets/raw_spending_distributions.png)
+
+![Raw_Spending_Distributions](assets/raw_spending_distribution.jpg)
 
 After applying a log1p transformation, the distributions become more symmetric and centered, with reduced skewness and kurtosis. This transformation preserves relative spending differences while improving numerical stability and interpretability for clustering algorithms.
 
-![Log-Transformed Distributions](assets/eda_distributions_log.png)
+![Log-Transformed Distributions](assets/log_data_distribution.jpg)
 
-[View EDA Notebook](/1_EDA.ipynb)
+## Outliers and Variability
 
-Spending variables exhibit strong right skew with a small number of high-value customers. A log transformation substantially reduces skewness, improving feature behavior for distance-based clustering.
+Boxplots of the spending variables further highlight the presence of extreme high-spending customers, particularly in the Fresh and Grocery categories. While these observations appear as statistical outliers, they likely represent meaningful customer segments rather than noise.
 
-![Log-Transformed Distributions](assets/eda_distributions_log.png)
+Accordingly, outliers are retained in the dataset to allow the clustering process to identify and separate high-value customers as distinct behavioral groups.
+
+![Boxplots of Spending Features](assets/boxplot_spending_features.jpg)
+
+
+
+
 
 A strong positive relationship is observed between Grocery and Detergents_Paper spending, indicating overlapping purchasing behavior among certain customer segments.
 
