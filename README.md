@@ -21,25 +21,27 @@ indicating customer type (Horeca or Retail), and Region, indicating geographic l
 - Correlation analysis (numeric features only)
 - Outlier assessment
 
-[View EDA Notebook](notebooks/01_eda.ipynb)
-[View EDA Notebook](/01_eda.ipynb)
+[View EDA Notebook](notebooks/01_EDA.ipynb)
+[View EDA Notebook](/1_EDA.ipynb)
 ## Preprocessing
 - Log transformation
 - Scaling
 - Feature selection
 
-[View Preprocessing Notebook](notebooks/02_preprocessing.ipynb)
+[View Preprocessing Notebook](2_Preprocessing.ipynb)
 
 ## Clustering
 - Model selection rationale
 - K-Means implementation
 - Cluster evaluation
 
-[View Clustering Notebook](notebooks/03_clustering.ipynb)
+[View Clustering Notebook](3_Clustering.ipynb)
 
 ## Cluster Interpretation
 - Spending profiles
 - Channel & Region composition
+
+[View Clustering Notebook](4_Clustering_Interpretation.ipynb)
 
 ## Results
 Key insights and takeaways
