@@ -22,7 +22,7 @@ indicating customer type (Horeca or Retail), and Region, indicating geographic l
 - Outlier assessment
 
 [View EDA Notebook](notebooks/01_eda.ipynb)
-
+[View EDA Notebook](/01_eda.ipynb)
 ## Preprocessing
 - Log transformation
 - Scaling
