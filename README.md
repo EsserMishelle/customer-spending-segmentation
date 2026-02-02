@@ -21,7 +21,6 @@ indicating customer type (Horeca or Retail), and Region, indicating geographic l
 - Correlation analysis (numeric features only)
 - Outlier assessment
 
-[View EDA Notebook](notebooks/01_EDA.ipynb)
 [View EDA Notebook](/1_EDA.ipynb)
 ## Preprocessing
 - Log transformation
