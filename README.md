@@ -39,11 +39,27 @@ Accordingly, outliers are retained in the dataset to allow the clustering proces
 
 ## Correlation Structure
 
-Correlation analysis of the numeric spending features reveals strong positive relationships between certain product categories. Grocery and Detergents_Paper spending show a very strong positive correlation, implying similar purchasing behavior.
-Milk spending is also strongly correlated with Grocery, indicating related buying patterns.
-Grocery shows weak correlation with Fresh and Frozen, suggesting more independent purchasing behavior across these categories.
-
+Correlation analysis of the numeric spending features reveals strong positive relationships between certain product categories. 
+* Grocery and Detergents_Paper spending show a very strong positive correlation, implying similar purchasing behavior.
+* Milk spending is also strongly correlated with Grocery, indicating related buying patterns.
+* In contrast, grocery shows weak correlation with Fresh and Frozen, suggesting more independent purchasing behavior across these categories.
 ![Grocery vs Detergents](assets/corr_heatmap.jpg)
+
+The scatter plot reinforces the strong positive relationship between Grocery and Detergents_Paper observed in the correlation analysis.
+
+![Grocery vs Detergents](assets/grocery_vs_detergents_paper_spending.jpg)
+
+## Categorical Variable Overview
+Categorical variables are examined separately from numeric spending features to provide contextual information for post-cluster interpretation.
+
+Horeca customers comprise approximately two-thirds of the dataset, with Retail customers making up the remaining third.
+
+![Region](assets/region.jpg)
+
+Customers are primarily concentrated in the “Other” region, with Lisbon and Oporto each representing smaller shares of the overall dataset.
+
+![Channel](assets/channel.jpg)
+
 
 ➡️ Full analysis: [`1_EDA.ipynb`](1_EDA.ipynb)
 ## Preprocessing
