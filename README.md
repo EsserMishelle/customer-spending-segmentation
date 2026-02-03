@@ -23,11 +23,13 @@ assessing feature suitability for clustering.
 ### Spending Distributions
 Initial histograms of the raw spending variables reveal highly right-skewed distributions, with a small subset of customers accounting for disproportionately large expenditures. These heavy-tailed patterns indicate substantial diversity in purchasing behavior and suggest that distance-based methods may be dominated by extreme values if left unaddressed.
 
-![Raw_Spending_Distributions](assets/raw_spending_distribution.jpg)
+<img src="assets/raw_spending_distribution.jpg" alt="Raw Spending Distributions" width="600">
+
 
 After applying a log1p transformation, the distributions become more symmetric and centered, with reduced skewness and kurtosis. This transformation preserves relative spending differences while improving numerical stability and interpretability for clustering algorithms.
 
-![Log-Transformed Distributions](assets/log_data_distribution.jpg)
+<img src="assets/log_data_distribution.jpg" alt="Log-Transformed Distributions" width="600">
+
 
 ## Outliers and Variability
 
@@ -35,7 +37,7 @@ Boxplots of the spending variables further highlight the presence of extreme hig
 
 Accordingly, outliers are retained in the dataset to allow the clustering process to identify and separate high-value customers as distinct behavioral groups.
 
-![Boxplots of Spending Features](assets/boxplot_spending_features.jpg)
+<img src="assets/boxplot_spending_features.jpg" alt="boxplot_spending_features.jpg" width="700">
 
 ## Correlation Structure
 
@@ -44,11 +46,11 @@ Correlation analysis of the numeric spending features reveals strong positive re
 * Milk spending is also strongly correlated with Grocery, indicating related buying patterns.
 * In contrast, grocery shows weak correlation with Fresh and Frozen, suggesting more independent purchasing behavior across these categories.
   
-![Grocery vs Detergents](assets/corr_heatmap.jpg)
+<img src="assets/corr_heatmap.jpg" alt="corr_heatmaps.jpg" width="600">
 
 The scatter plot reinforces the strong positive relationship between Grocery and Detergents_Paper observed in the correlation analysis.
 
-![Grocery vs Detergents](assets/grocery_vs_detergents_paper_spending.jpg)
+<img src="assets/grocery_vs_detergents_paper_spending.jpg" alt="grocery_vs_detergents_paper_spending.jpg" width="600">
 
 ## Categorical Variable Overview
 Categorical variables are examined separately from numeric spending features to provide contextual information for post-cluster interpretation.
@@ -90,8 +92,7 @@ Scaling ensures that all variables contribute equally to distance-based clusteri
 
 Principal Components Analysis (PCA) is applied to the scaled data to reduce dimensionality while preserving the majority of variance in customer spending behavior. PCA also helps improve clustering performance by reducing noise and collinearity among features.
 
-![pca_explained_variance](assets/pca_explained_variance.jpg)
-
+<img src="assets/pca_explained_variance.jpg" alt="pca_explained_variance.jpg" width="600">
 **Analysis:**
 
 The first 3 principal components capture 82.0% of the total variance in the data, exceeding the commonly used 80% threshold for dimensionality reduction. While adding a fourth component would increase cumulative variance to 92.1%, the marginal gain (10.1%) does not justify the added complexity. Therefore, n_components=3 was selected for clustering analysis, balancing information retention with model simplicity.
@@ -128,29 +129,131 @@ This step applies the finalized preprocessing and clustering parameters identifi
 - Number of clusters: k = 3
 - Input features: PCA-reduced spending variables (3 components)
 - Silhouette score: 0.33
-  
-![pca_scatter_plot](assets/pca_scatter_plot.jpg)
 
-The full clustering implementation and evaluation are documented in the clustering notebook.
+### PCA Cluster Visualization
+
+<img src="assets/pca_scatter_plot.jpg" alt="assets/pca_scatter_plot.jpg" width="600">
+
+The scatter plot shows customers projected onto the first two principal components, with points colored by their assigned K-Means cluster. The visualization indicates moderate separation among the three clusters in reduced-dimensional space, supporting the suitability of the selected clustering configuration.
 
 
+* PCA is applied to display the clustered data in two dimensions for visualization purposes. The plot shows a clear grouping pattern corresponding to the tree clusters identified by K-Means, with some overlap resulting from dimensionality reduction.
+* The first two principal components explain approximately 71% of the total variance, which is sufficient for visualizing overall cluster structure without influencing model selection.
 
-[View Clustering Notebook](3_Clustering.ipynb)
+➡️ Full analysis: [`3_Clustering`](3_Clustering.ipynb)
 
 ## Cluster Profiling
-## Cluster Interpretation
-- Spending profiles
-- Channel & Region composition
-
---
-several jpgs
-2-3 clusters:https://github.com/EsserMishelle/customer-spending-segmentation/blob/main/assets/sil_2_3_clusters.jpg
-4-5
-6-7
-8
+### Silhouette Analysis (Visual Purpose)
+Silhouette analysis is used here to visually validate cluster separation and confirm the selected number of clusters.
 
 
-[View Clustering Notebook](4_Clustering_Interpretation.ipynb)
+<img src="assets/sil_2_3_clusters.jpg" alt="sil_2_3_clusters.jpg" width="600">
+<img src="assets/sil_4_5_clusters.jpg" alt="sil_4_5_clusters.jpg" width="600">
+<img src="assets/sil_6_7_clusters.jpg" alt="sil_6_7_clusters.jpg" width="600">
+<img src="assets/sil_8_clusters.jpg" alt="sil_8_clusters.jpg" width="600">
+<img src="assets/sil_n_scores.jpg" alt="sil_n_score.jpg" width="1400">
 
-## Results
-Key insights and takeaways
+### Silhouette analysis is shown across multiple values of k (2–8) to illustrate the trade-off between statistical separation and business interpretability.
+
+* While k = 2 produces the highest average silhouette score, it results in overly broad clusters that does not produce meanings.
+* Both k = 3 and k = 4 appear plausible; however, k = 3 has a higher silhouette score and maintains moderate separation while improving interpretability.
+* Therefore, k = 3 is validated to be be the optimal clustering solution.
+
+## Cluster Profiling
+Clusters are referenced using descriptive segment names based on dominant spending patterns; detailed interpretations are provided below.
+
+## Spending Profiles by Cluster
+<img src="assets/spending_profiles.jpg" alt="spending_profiles.jpg" width="1800">
+
+## Table 1. Average Spending by Product Category per Cluster
+<img src="assets/tble_avg_spending_by_category.jpg" alt="tble_avg_spending_by_category.jpg" width="600">
+
+## Table 2. Customer Segment Summary
+<img src="assets/tble_customer_segment_summary.jpg" alt="tble_customer_segment_summary.jpg" width="600">
+
+## Cluster Interpretation:
+
+####  **Custer 0 (High-Value Diversified Buyers):** 
+
+* This group represents the highest-spending customers across nearly all product categories, indicating a broad and diversified purchasing profile.
+* These customers are large-volume buyers with extensive category coverage and account for a substantial share of overall revenue, making them strategically important to the business.
+
+#### **Cluster 1 (Staple-Focused High-Volume Buyers):**
+
+* While being the smallest cluster, customers in this segment spend disproportionately high amounts on staple goods such as **Grocery, Milk, and Detergents-Paper**, indicating a focus on essential household or operational supplies rather than fresh or specialty products.
+
+* This pattern suggests consistent, necessity-driven purchasing behavior rather than broad or diversified consumption.
+
+#### **Cluster 2 (Lower-Volume General Buyers):**
+
+* This group represents the largest cluster with the lowest average spending behavoir. This pattern suggests smaller-scale or infrequent buyers with limited purchasing volume. 
+* These customers may engage in **more selective or occasional purchasing** rather than bulk or high-volume transactions.
+
+## Business Implications  
+
+#### **Cluster 0 (High-Value Diversified Buyers)** - Highest overall spend across categories
+
+This segment represents the most valuable customers with diversified purchasing behavior.
+
+Actionable strategies:
+
+* Prioritize account management and retention programs.
+
+* Provide exclusive promotions, early access, or loyalty incentives.
+
+* Provide credit or debit cards for cashback discounts. 
+
+* Offer cross-category promotions (e.g., Fresh + Frozen + Grocery).
+
+* Use this segment for new product trials or premium offerings due to higher engagement.
+
+#### **Cluster 1 (Staple-Focused High-Volume Buyers)** - High Grocery, Milk, Detergents_Paper
+
+These customers prioritize essential household and operational supplies.
+
+Actionable strategies:
+
+* Offer bundle discounts on products (e.g., Grocery + Detergents_Paper).
+
+* Distribute or email recurring coupons for consumables to encourage repeat purchasing.
+
+* Introduce auto-replenishment or subscription-style offers for high-frequency items.
+
+* In wholesale contexts, target this segment with volume-based pricing or contract pricing.
+
+
+
+#### **Cluster 2 (Lower-Volume General Buyers):** - Lower spend, concentrated categories
+
+These customers purchase selectively and represent growth potential.
+
+Actionable strategies:
+
+* Use targeted discounts to encourage category expansion.
+
+* Promote sampling programs (e.g., in-store food samples or trial-sized products).
+
+* Run entry-level bundle promotions to increase basket size.
+
+* Focus on seasonal or promotional campaigns rather than everyday discounts.
+
+# Summary and Opportunities for Further Analysis
+
+This analysis segments customers based solely on aggregated spending behavior across product categories. While the resulting clusters reveal meaningful purchasing patterns, additional data could significantly enhance segmentation quality and business insight.
+
+Future improvements could include:
+
+* Time-series purchasing data to capture seasonality, frequency, and customer lifecycle behavior.
+
+* Transaction-level data to distinguish bulk purchases from frequent small orders.
+
+* Demographic or firmographic attributes (e.g., business size, customer type, location density).
+
+* Channel interaction data to assess differences in purchasing behavior across sales channels.
+
+*Promotional response history to measure price sensitivity and campaign effectiveness.
+
+Incorporating these features would enable more precise segmentation, improved personalization, and stronger predictive modeling for customer behavior.
+
+
+➡️ Full analysis: [`4_Cluster_Interpretation`](4_Cluster_Interpretation.ipynb)
