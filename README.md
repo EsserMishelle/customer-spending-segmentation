@@ -268,7 +268,7 @@ Future improvements could include:
 
 * Channel interaction data to assess differences in purchasing behavior across sales channels.
 
-*Promotional response history to measure price sensitivity and campaign effectiveness.
+* Promotional response history to measure price sensitivity and campaign effectiveness.
 
 Incorporating these features would enable more precise segmentation, improved personalization, and stronger predictive modeling for customer behavior.
 
