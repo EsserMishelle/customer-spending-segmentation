@@ -128,8 +128,12 @@ This step applies the finalized preprocessing and clustering parameters identifi
 - Number of clusters: k = 3
 - Input features: PCA-reduced spending variables (3 components)
 - Silhouette score: 0.33
+  
+![pca_scatter_plot](assets/pca_scatter_plot.jpg)
 
 The full clustering implementation and evaluation are documented in the clustering notebook.
+
+
 
 [View Clustering Notebook](3_Clustering.ipynb)
 
