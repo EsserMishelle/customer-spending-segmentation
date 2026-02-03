@@ -43,6 +43,7 @@ Correlation analysis of the numeric spending features reveals strong positive re
 * Grocery and Detergents_Paper spending show a very strong positive correlation, implying similar purchasing behavior.
 * Milk spending is also strongly correlated with Grocery, indicating related buying patterns.
 * In contrast, grocery shows weak correlation with Fresh and Frozen, suggesting more independent purchasing behavior across these categories.
+  
 ![Grocery vs Detergents](assets/corr_heatmap.jpg)
 
 The scatter plot reinforces the strong positive relationship between Grocery and Detergents_Paper observed in the correlation analysis.
@@ -116,22 +117,11 @@ To help determine number of clusters, the hierarchical clustering is applied.
 
 The dendrogram displays a clear separation at higher linkage distances, with a gap around a distance of 14. Splitting the dendrogram here at y=14 results in three main branches, which is consistent with the three-cluster solution assessed by elbow and silhouette methods.
 
-### Therefore, k = 3 is selected as the optimal number of customer segments.
---
-several jpgs
-2-3 clusters:https://github.com/EsserMishelle/customer-spending-segmentation/blob/main/assets/sil_2_3_clusters.jpg
-4-5
-6-7
-8
+**Therefore, k = 3 is selected as the optimal number of customer segments.**
 
-
-Hierachical dendrogram.jpg
-The dendrogram displays a clear separation at higher linkage distances, with a gap around a distance of 13. Splitting the dendrogram here at y=13 results in three main branches, which is consistent with the three-cluster solution assessed by elbow and silhouette methods.
+➡️ Full analysis: [`2_Preprocessing`](2_Preprocessing.ipynb)
 
 ## Fit the final clustering
-4.5 Fit the Final Clustering
-K-Means with K=3 on 3 pca components
-Silhouette Score: 0.52
 
 Based on elbow, silhouette, and hierarchical confirmation, k = 3 is selected as the final clustering solution.
 
@@ -149,6 +139,14 @@ Based on elbow, silhouette, and hierarchical confirmation, k = 3 is selected as 
 ## Cluster Interpretation
 - Spending profiles
 - Channel & Region composition
+
+--
+several jpgs
+2-3 clusters:https://github.com/EsserMishelle/customer-spending-segmentation/blob/main/assets/sil_2_3_clusters.jpg
+4-5
+6-7
+8
+
 
 [View Clustering Notebook](4_Clustering_Interpretation.ipynb)
 
