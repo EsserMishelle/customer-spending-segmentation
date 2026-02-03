@@ -1,3 +1,17 @@
+## Table of Contents
+
+
+- [Customer Clustering Analysis](#customer-clustering-analysis)
+- [Exploratory Data Analysis(EDA)](#exploratory-data-analysiseda)
+- [Exploratory Data Analysis(EDA)](#exploratory-data-analysiseda)
+
+- [Spending Distributions](#spending-distributions)
+- [Clustering Methodology](#clustering-methodology)
+- [Cluster Results](#cluster-results)
+- [Cluster Interpretation](#cluster-interpretation)
+- [Business Implications](#business-implications)
+- [Conclusion](#conclusion)
+
 # Customer Clustering Analysis
 
 ## Overview and Analysis Objective
@@ -17,8 +31,14 @@ Fresh, Milk, Grocery, Frozen, Detergents_Paper, and Delicatessen. These spending
 indicating customer type (Horeca or Retail), and Region, indicating geographic location (Lisbon, Oporto, or Other).
 
 ## Exploratory Data Analysis(EDA)
-The exploratory data analysis focuses on understanding customer spending behavior across product categories and 
-assessing feature suitability for clustering.
+The exploratory data analysis focuses on understanding customer spending behavior across product categories and assessing feature suitability for clustering.
+
+<img src="assets/describe.jpg" alt="describe" width="1000">
+
+**Observations (based on info() and describe()):**
+* There are 440 rows and 8 variables, with no missing values.
+* The spending variables show large ranges and high standard deviations, suggesting substantial differences in purchasing behavior.
+* Median values are lower than mean or maximum values, implying the presence of high-spending customers.
 
 ### Spending Distributions
 Initial histograms of the raw spending variables reveal highly right-skewed distributions, with a small subset of customers accounting for disproportionately large expenditures. These heavy-tailed patterns indicate substantial diversity in purchasing behavior and suggest that distance-based methods may be dominated by extreme values if left unaddressed.
