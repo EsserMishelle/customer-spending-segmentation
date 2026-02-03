@@ -121,21 +121,19 @@ The dendrogram displays a clear separation at higher linkage distances, with a g
 
 ➡️ Full analysis: [`2_Preprocessing`](2_Preprocessing.ipynb)
 
-## Fit the final clustering
-
-Based on elbow, silhouette, and hierarchical confirmation, k = 3 is selected as the final clustering solution.
-
-## 5 Cluster Profiling
-
-[View Preprocessing Notebook](2_Preprocessing.ipynb)
-
 ## Clustering
-- Model selection rationale
-- K-Means implementation
-- Cluster evaluation
+This step applies the finalized preprocessing and clustering parameters identified in earlier analysis to assign customers to segments using K-Means clustering. Based on elbow, silhouette, and hierarchical confirmation, k = 3 is selected as the final clustering solution.
+
+- Algorithm: K-Means
+- Number of clusters: k = 3
+- Input features: PCA-reduced spending variables (3 components)
+- Silhouette score: 0.33
+
+The full clustering implementation and evaluation are documented in the clustering notebook.
 
 [View Clustering Notebook](3_Clustering.ipynb)
 
+## Cluster Profiling
 ## Cluster Interpretation
 - Spending profiles
 - Channel & Region composition
