@@ -3,14 +3,11 @@
 
 - [Customer Clustering Analysis](#customer-clustering-analysis)
 - [Exploratory Data Analysis(EDA)](#exploratory-data-analysiseda)
-- [Exploratory Data Analysis(EDA)](#exploratory-data-analysiseda)
-
-- [Spending Distributions](#spending-distributions)
-- [Clustering Methodology](#clustering-methodology)
-- [Cluster Results](#cluster-results)
+- [Data Preprocessing (for Clustering)](#data-preprocessing-for-clustering)
+- [Clustering](#clustering)
 - [Cluster Interpretation](#cluster-interpretation)
 - [Business Implications](#business-implications)
-- [Conclusion](#conclusion)
+- [ Summary and Opportunities for Further Analysis](#summary-and-opportunities-for-further-analysis)
 
 # Customer Clustering Analysis
 
@@ -162,7 +159,7 @@ The scatter plot shows customers projected onto the first two principal componen
 
 ➡️ Full analysis: [`3_Clustering`](3_Clustering.ipynb)
 
-## Cluster Profiling
+## Cluster Interpretation
 ### Silhouette Analysis (Visual Purpose)
 Silhouette analysis is used here to visually validate cluster separation and confirm the selected number of clusters.
 
