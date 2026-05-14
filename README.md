@@ -9,6 +9,8 @@
 - [Business Implications](#business-implications)
 - [ Summary and Opportunities for Further Analysis](#summary-and-opportunities-for-further-analysis)
 
+<img src="assets/customer-segments-thumbnail.jpg" alt="customer-segments-thumbnail" width="1000">
+
 # Customer Clustering Analysis
 
 ## Overview and Analysis Objective
